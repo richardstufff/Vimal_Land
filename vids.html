@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+	  font-family: Arial, sans-serif;
+	  font-color: white;
+    }
+	
+h1 {
+  color: green;
+
+}
+
+    .header {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .nav-link {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .video-thumbnail {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .video-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      margin: auto;
+      display: block;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+  <title>Video Gallery</title>
+</head>
+<body>
+  
+    <!-- Header with navigation links -->
+  <div class="header">
+    <a href="about1.html" class="nav-link">About</a>
+    <a href="img.html" class="nav-link">Pictures</a>
+    <a href="index.html" class="nav-link">Home</a>
+  </div>
+ <h1 style="text-align: center;">Videos Of The Land</h1>
+  <div class="video-gallery">
+    <div class="video-thumbnail" data-video-src="b (1).mp4">
+      <img src="b1.jpg" alt="Video Thumbnail 1">
+    </div>
+    <div class="video-thumbnail" data-video-src="b (2).mp4">
+      <img src="b2.jpg" alt="Video Thumbnail 2">
+    </div>
+          
+    <div class="video-thumbnail" data-video-src="b (6).mp4">
+      <img src="b6.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="ijij.mp4">
+      <img src="ijij.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="mnju.mp4">
+      <img src="mnju.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="Video.mp4">
+      <img src="video.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="Video5.mp4">
+      <img src="video5.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="WhatsA.mp4">
+      <img src="whatsa.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="WhatsApp Video 2023.mp4">
+      <img src="WhatsApp Video 2023.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="WhatsApp Video 2023-08-18 at 1.mp4">
+      <img src="WhatsApp Video 2023-08-18 at 1.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="WhatsApp Video 2023-08-18 at 19.1.mp4">
+      <img src="WhatsApp Video 2023-08-18 at 19.1.jpg" alt="Video Thumbnail 1">
+  </div>
+    <div class="video-thumbnail" data-video-src="WhatsApp Video 2023-08-18 at 19.16.51.mp4">
+      <img src="WhatsApp Video 2023-08-18 at 19.16.51.jpg" alt="Video Thumbnail 1">
+  </div>
+
+  <div class="modal" id="modal">
+    <span class="close" id="close">&times;</span>
+    <iframe class="modal-content" id="modal-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    const modal = document.getElementById('modal');
+    const modalVideo = document.getElementById('modal-video');
+    const closeBtn = document.getElementById('close');
+
+    videoThumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', () => {
+        const videoSrc = thumbnail.dataset.videoSrc;
+        modalVideo.src = videoSrc;
+        modal.style.display = 'block';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modalVideo.src = '';
+      modal.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
